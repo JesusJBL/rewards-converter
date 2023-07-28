@@ -1,21 +1,26 @@
 public class RewardValue {
-   private double reward;
-   private double RATE = 0.0035;
+   private double cashNumber;
+   private int milesNumber;
+   public static final double RATE = 0.0035;
     // Cash Constructor
     public RewardValue(double cashNumber) {
-        reward = cashNumber / RATE;
+        this.cashNumber = cashNumber;
     }
 
     // Mile Constructor
-    public RewardValue(long mileNumber) {
-        reward = mileNumber * RATE;
+    public RewardValue(int milesNumber) {
+        this.cashNumber =  (milesNumber * RATE);
+    }
+
+    public static int compareToCash(double cashNumber) {
+        return (int) (cashNumber / RATE);
     }
 
     public double getCashValue() {
-        return reward;
+        return cashNumber;
     }
 
-    public double getMilesValue() {
-        return reward;
+    public int getMilesValue() {
+        return compareToCash(this.cashNumber);
     }
 }
